@@ -12,8 +12,8 @@
 
   <script>
     let tarefas = [
-      { id: 1, texto: "Estudar React", feita: false },
-      { id: 2, texto: "Levar o cachorro", feita: true }
+      { id: 1, texto: "Estudar React: ", feita: false },
+      { id: 2, texto: "Levar o cachorro: ", feita: true }
     ];
 
     function desenhar() {
@@ -21,9 +21,8 @@
       ul.innerHTML = "";
       for (const t of tarefas) {
         const li = document.createElement("li");
-        li.textContent = t.texto + (t.feita ? " (feita)" : "");
+        li.textContent = t.texto + (t.feita ? "(feita) " : "");
         
-        // Input adicionado para o Experimento 2
         const inputInterno = document.createElement("input");
         inputInterno.placeholder = "Anotação...";
         li.appendChild(inputInterno);
@@ -38,7 +37,7 @@
       if (input.value.trim() === "") return;
       tarefas.push({ id: Date.now(), texto: input.value, feita: false });
       input.value = "";
-      desenhar(); // Descomente/comente para o Experimento 1
+      desenhar();
     });
 
     desenhar();
